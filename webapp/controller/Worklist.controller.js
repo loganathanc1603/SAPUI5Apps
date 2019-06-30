@@ -9,17 +9,18 @@ sap.ui.define([
 	"sap/ui/model/FilterOperator",
 	"com/sap/ui5/app/ZSAPUI5ALLAPP/Firebase",
 	"sap/m/MessageBox",
+	"com/sap/ui5/app/ZSAPUI5ALLAPP/js/Services",
 	"com/sap/ui5/app/ZSAPUI5ALLAPP/utilities/firebase-app",
 	"com/sap/ui5/app/ZSAPUI5ALLAPP/utilities/firebase-firestore",
 	"com/sap/ui5/app/ZSAPUI5ALLAPP/utilities/firebase"
-], function(BaseController, JSONModel, History, formatter, Filter, FilterOperator, Firebase, MessageBox) {
+], function(BaseController, JSONModel, History, formatter, Filter, FilterOperator, Firebase, MessageBox, Services) {
 	"use strict";
 
 	return BaseController.extend("com.sap.ui5.app.ZSAPUI5ALLAPP.controller.Worklist", {
-
 		formatter: formatter,
-
+		Services: Services,
 		onInit: function() {
+			Services.initService(this);
 			this.WLModel = new JSONModel({
 				iBusy: false,
 				iBusyDelay: 0
@@ -98,6 +99,10 @@ sap.ui.define([
 				this.WLModel.setProperty("/iBusy", false);
 				MessageBox.show("Data creation has been failed..", MessageBox.Icon.ERROR, "Error");
 			});
+		},
+
+		onUpdShModel: function(evt) {
+
 		}
 
 	});
