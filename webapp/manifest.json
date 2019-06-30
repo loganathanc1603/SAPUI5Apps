@@ -10,7 +10,7 @@
 			"version": "1.0.0"
 		},
 		"dataSources": {
-			"mainService": {
+			"ZDEMO_FLIGHT_CDS": {
 				"uri": "/sap/opu/odata/sap/ZDEMO_FLIGHT_CDS/",
 				"type": "OData",
 				"settings": {
@@ -23,15 +23,16 @@
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
-					"localUri": "localService/ZGW_EMP_DETAILS_SRV/metadata.xml"
+					"localUri": "localService/ZGW_EMP_DETAILS_SRV/metadata.xml",
+					"annotations": ["LocatAnnotation", "LocalAnnotations"]
 				}
-			}
-		},
-		"LocatAnnotation": {
-			"uri": "annotations/EmpAnnotation.xml",
-			"type": "ODataAnnotation",
-			"settings": {
-				"localUri": "annotations/EmpAnnotation.xml"
+			},
+			"LocalAnnotations": {
+				"uri": "annotations/EmpAnnotation.xml",
+				"type": "ODataAnnotation",
+				"settings": {
+					"localUri": "annotations/EmpAnnotation.xml"
+				}
 			}
 		},
 		"sourceTemplate": {
@@ -96,7 +97,7 @@
 					"defaultBindingMode": "OneTime",
 					"defaultCountMode": "Request"
 				},
-				"dataSource": "mainService",
+				"dataSource": "ZDEMO_FLIGHT_CDS",
 				"preload": true
 			}
 		},

@@ -1,6 +1,5 @@
 <mvc:View controllerName="com.sap.ui5.app.ZSAPUI5ALLAPP.controller.Worklist" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
-	xmlns:semantic="sap.f.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
-	xmlns:smartTable="sap.ui.comp.smarttable" xmlns:form="sap.ui.comp.smartform" xmlns:table="sap.ui.table" xmlns:core="sap.ui.core">
+	xmlns:semantic="sap.f.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:core="sap.ui.core">
 	<semantic:SemanticPage busy="{WLModel>/iBusy}" busyIndicatorDelay="{WLModel>/iBusyDelay}" headerPinnable="false"
 		toggleHeaderOnTitleClick="true" preserveHeaderStateOnScroll="false" showFooter="{path:'oViewModel>/showFooter'}">
 		<semantic:titleHeading>
@@ -12,24 +11,12 @@
 					<IconTabFilter key="iCTab_One_CdsSrv" text="CDS Service" tooltip="CDS Service" icon="sap-icon://add-activity">
 						<core:Fragment fragmentName="com.sap.ui5.app.ZSAPUI5ALLAPP.fragments.SFlightCDS" type="XML"></core:Fragment>
 					</IconTabFilter>
-					<IconTabFilter iconColor="Positive" key="iCTab_Two_FireBase" text="Firebase Exercise" tooltip="Firebase Exercise" icon="sap-icon://table-view">
+					<IconTabFilter key="iCTab_Two_FireBase" text="Firebase Read and Create" tooltip="Firebase Exercise" icon="sap-icon://table-view">
 						<core:Fragment fragmentName="com.sap.ui5.app.ZSAPUI5ALLAPP.fragments.FireBaseData" type="XML"></core:Fragment>
 					</IconTabFilter>
-					<IconTabFilter key="iCTab_One_SmartCtrl" icon="sap-icon://activate" text="{i18n>workList.iconTabBarTitleOne}"
-						tooltip="{i18n>workList.iconTabBarTitleOne}" visible="false">
-						<!--<smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="EmployeeHeaderSet" persistencyKey="SmartFilterPKey">-->
-						<!--	<smartFilterBar:controlConfiguration>-->
-						<!--		<smartFilterBar:ControlConfiguration key="EmployeeID" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false"></smartFilterBar:ControlConfiguration>-->
-						<!--	</smartFilterBar:controlConfiguration>-->
-						<!--	<smartFilterBar:controlConfiguration>-->
-						<!--		<smartFilterBar:ControlConfiguration key="EmployeePosition" visibleInAdvancedArea="true" preventInitialDataFetchInValueHelpDialog="false"></smartFilterBar:ControlConfiguration>-->
-						<!--	</smartFilterBar:controlConfiguration>-->
-						<!--</smartFilterBar:SmartFilterBar>-->
-						<!--<smartTable:SmartTable id="smartTable_ResponsiveTable" smartFilterId="smartFilterBar" tableType="ResponsiveTable" editable="false"-->
-						<!--	entitySet="EmployeeHeaderSet" header="Employee Information" useVariantManagement="true" useTablePersonalisation="true" showRowCount="true"-->
-						<!--	useExportToExcel="true" enableAutoBinding="true" persistencyKey="SmartTablePKey">-->
-						<!--	<table:TreeTable id="hierTable_org_hier" selectionMode="Single" visibleRowCount="10"></table:TreeTable>-->
-						<!--</smartTable:SmartTable>-->
+					<IconTabFilter key="iCTab_Three_FireBase" text="Firebase Auth" tooltip="Firebase Authentication" icon="sap-icon://user-settings"></IconTabFilter>
+					<IconTabFilter key="iCTab_One_SmartCtrl" icon="sap-icon://activate" text="Smart Table" tooltip="Smart Table" visible="true">
+						<core:Fragment fragmentName="com.sap.ui5.app.ZSAPUI5ALLAPP.fragments.SmartTable" type="XML"></core:Fragment>
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
