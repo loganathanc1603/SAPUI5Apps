@@ -16,7 +16,7 @@
 					</IconTabFilter>
 					<IconTabFilter key="iCTab_Three_FireBase" text="Firebase Auth" tooltip="Firebase Authentication" icon="sap-icon://user-settings"></IconTabFilter>
 					<IconTabFilter key="iCTab_One_SmartCtrl" icon="sap-icon://activate" text="Smart Table" tooltip="Smart Table" visible="true">
-						<core:Fragment fragmentName="com.sap.ui5.app.ZSAPUI5ALLAPP.fragments.SmartTable" type="XML"></core:Fragment>
+						<!--<core:Fragment fragmentName="com.sap.ui5.app.ZSAPUI5ALLAPP.fragments.SmartTable" type="XML"></core:Fragment>-->
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
