@@ -5,7 +5,6 @@ sap.ui.define([
 		"use strict";
 
 		return BaseController.extend("com.sap.ui5.app.ZSAPUI5ALLAPP.controller.App", {
-
 			onInit : function () {
 				var oViewModel,
 					fnSetAppNotBusy,
