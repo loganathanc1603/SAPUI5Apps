@@ -1,5 +1,5 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-	<Table id="mTblShipId" items="{shipmentModel>/}">
+	<Table id="mTblShipId" items="{shipmentModel>/}" updateFinished="upD">
 		<headerToolbar>
 			<Toolbar>
 				<content>
