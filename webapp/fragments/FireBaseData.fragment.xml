@@ -5,14 +5,13 @@
 				<content>
 					<Title text="{i18n>Shipments}" level="H2"/>
 					<ToolbarSpacer/>
-					<!--<Button text="Add Rreal Time DB" type="Accept" visible="false" press="onPrsAddRDB" icon="sap-icon://add"/>-->
 					<Button text="Add" type="Reject" press="onPrsAddCFireStore" icon="sap-icon://add"/>
 				</content>
 			</Toolbar>
 		</headerToolbar>
 		<columns>
 			<Column>
-				<Text text="{i18n>ShipmentId}"/>
+				<Text text="Shipment Id"/>
 			</Column>
 			<Column>
 				<Text text="{i18n>Origin}"/>
