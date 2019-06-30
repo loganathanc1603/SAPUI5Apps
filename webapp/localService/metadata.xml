@@ -1,0 +1,37 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:Reference
+        xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='S4HANA')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZFLIGHT_TAB2_CDS" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="zflight_tab2Type" sap:semantics="aggregate" sap:label="SFlight App CDS View" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false"/>
+                <Property Name="FlightCode" Type="Edm.String" MaxLength="8" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Flight Code"/>
+                <Property Name="PaymentSum" Type="Edm.Decimal" Precision="18" Scale="3" sap:aggregation-role="measure" sap:label="Booking total" sap:quickinfo="Total of current bookings" sap:filterable="false"/>
+                <Property Name="FlightDate" Type="Edm.DateTime" Precision="0" sap:aggregation-role="dimension" sap:display-format="Date" sap:label="Flight Date" sap:quickinfo="Flight date"/>
+                <Property Name="AircraftType" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:display-format="UpperCase" sap:label="Plane Type" sap:quickinfo="Aircraft Type"/>
+                <Property Name="MaxSeats" Type="Edm.Int32" sap:aggregation-role="dimension" sap:label="Max. capacity econ." sap:quickinfo="Maximum capacity in economy class"/>
+                <Property Name="SeatsOccupied" Type="Edm.Int32" sap:aggregation-role="dimension" sap:label="Occupied econ." sap:quickinfo="Occupied seats in economy class"/>
+                <Property Name="BussOccupied" Type="Edm.Int32" sap:aggregation-role="dimension" sap:label="Occupied bus." sap:quickinfo="Occupied seats in business class"/>
+                <Property Name="FirstOccupied" Type="Edm.Int32" sap:aggregation-role="dimension" sap:label="Occupied 1st" sap:quickinfo="Occupied seats in first class"/>
+                <Property Name="Curency" Type="Edm.String" MaxLength="5" sap:aggregation-role="dimension" sap:label="Airline Currency" sap:quickinfo="Local currency of airline" sap:semantics="currency-code"/>
+                <Property Name="Price" Type="Edm.Decimal" Precision="16" Scale="3" sap:aggregation-role="dimension" sap:label="Airfare"/>
+            </EntityType>
+            <EntityContainer Name="ZFLIGHT_TAB2_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="zflight_tab2" EntityType="ZFLIGHT_TAB2_CDS.zflight_tab2Type" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZFLIGHT_TAB2_CDS/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZFLIGHT_TAB2_CDS/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
