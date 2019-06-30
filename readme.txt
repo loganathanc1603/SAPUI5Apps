@@ -1,12 +1,4 @@
-<<<<<<< Upstream, based on aec34ef4edee3e29b49356c3f4a06282d85b646b
- #### WELCOME ####
- 
- Change from github website
-
-=======
-#### WELCOME ####
-i am not aware of the change from github website.
->>>>>>> 1d6ea75 readme file changes
+#### WELCOME TO DEVELOPMENT ######
 This is your copy of the SAPUI5 Worklist Freestyle Application Template.
 You can find the template version in the .project.json - file in your workspace.
 
