@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Table id="mTblShipId" items="{shipmentModel>/}">
+		<headerToolbar>
+			<Toolbar>
+				<content>
+					<Title text="{i18n>Shipments}" level="H2"/>
+					<ToolbarSpacer/>
+					<!--<Button text="Add Rreal Time DB" type="Accept" visible="false" press="onPrsAddRDB" icon="sap-icon://add"/>-->
+					<Button text="Add" type="Reject" press="onPrsAddCFireStore" icon="sap-icon://add"/>
+				</content>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column>
+				<Text text="{i18n>ShipmentId}"/>
+			</Column>
+			<Column>
+				<Text text="{i18n>Origin}"/>
+			</Column>
+			<Column>
+				<Text text="{i18n>Destination}"/>
+			</Column>
+			<Column>
+				<Text text="{i18n>Status}"/>
+			</Column>
+			<Column>
+				<Text text="Created On"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<ObjectIdentifier title="{shipmentModel>Code}"/>
+					<Text text="{shipmentModel>Origin}"/>
+					<Text text="{shipmentModel>Destination}"/>
+					<ObjectStatus text="{shipmentModel>Status}"
+						state="{= ${shipmentModel>Status} === 'Shipped' ? 'Success' : ${shipmentModel>Status} === 'Missing' ? 'Warning' : ${shipmentModel>Status} === 'Preparing' ? 'Error' : 'Error'}"
+						icon="{path:'shipmentModel>Status', formatter:'.formatter.getStatusIcon'}"/>
+					<Text text="{path:'shipmentModel>Timestamp/seconds',formatter:'.formatter.setDateFormat'}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

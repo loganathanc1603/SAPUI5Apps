@@ -1,0 +1,157 @@
+{
+	"_version": "1.9.0",
+	"sap.app": {
+		"id": "com.sap.ui5.app.ZSAPUI5ALLAPP",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/ZDEMO_FLIGHT_CDS/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"ZGW_EMP_DETAILS_SRV": {
+				"uri": "/sap/opu/odata/sap/ZGW_EMP_DETAILS_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/ZGW_EMP_DETAILS_SRV/metadata.xml"
+				}
+			}
+		},
+		"LocatAnnotation": {
+			"uri": "annotations/EmpAnnotation.xml",
+			"type": "ODataAnnotation",
+			"settings": {
+				"localUri": "annotations/EmpAnnotation.xml"
+			}
+		},
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://task",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "com.sap.ui5.app.ZSAPUI5ALLAPP.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.42.0",
+			"libs": {
+				"sap.collaboration": {
+					"lazy": true
+				},
+				"sap.f": {},
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.ushell": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.sap.ui5.app.ZSAPUI5ALLAPP.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "ZGW_EMP_DETAILS_SRV",
+				"preload": true
+			},
+			"SFLIGHT_CDS": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneTime",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "mainService",
+				"preload": true
+			}
+		},
+		"services": {
+			"ShellUIService": {
+				"factoryName": "sap.ushell.ui5service.ShellUIService",
+				"lazy": false,
+				"settings": {
+					"setTitle": "auto"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.sap.ui5.app.ZSAPUI5ALLAPP.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": ["notFound"]
+				},
+				"async": true
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "worklist",
+				"target": ["worklist"]
+			}, {
+				"pattern": "zflight_tab2/{objectId}",
+				"name": "object",
+				"target": ["object"]
+			}],
+			"targets": {
+				"worklist": {
+					"viewName": "Worklist",
+					"viewId": "worklist",
+					"viewLevel": 1,
+					"title": "{i18n>appTitle}"
+				},
+				"object": {
+					"viewName": "Object",
+					"viewId": "object",
+					"viewLevel": 2,
+					"title": "{i18n>objectViewTitle}"
+				},
+				"objectNotFound": {
+					"viewName": "ObjectNotFound",
+					"viewId": "objectNotFound"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,137 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZGW_EMP_DETAILS_SRV" xml:lang="en" sap:schema-version="1">
+            <EntityType Name="EmployeeHeader" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="EmployeeID"/>
+                </Key>
+                <Property Name="Client" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmployeeID" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Employee Id" sap:creatable="false"/>
+                <Property Name="EmployeeName" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Employee Name" sap:creatable="false"/>
+                <Property Name="EmployeeAge" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Employee Age" sap:creatable="false"/>
+                <Property Name="EmployeeMobile" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Employee Mobile" sap:creatable="false"/>
+                <Property Name="EmployeePosition" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Employee Position" sap:creatable="false"/>
+                <NavigationProperty Name="NavEmpPhoto" Relationship="ZGW_EMP_DETAILS_SRV.AsEmpPhoto" FromRole="FromRole_AsEmpPhoto" ToRole="ToRole_AsEmpPhoto"/>
+                <NavigationProperty Name="Nav_EmployeeExperience" Relationship="ZGW_EMP_DETAILS_SRV.AssoEmpHeaderToItemExp" FromRole="FromRole_AssoEmpHeaderToItemExp" ToRole="ToRole_AssoEmpHeaderToItemExp" sap:label="Nav_EmployeeExperience"/>
+                <NavigationProperty Name="NAV_EMPLOYEEHEADERTOITEM" Relationship="ZGW_EMP_DETAILS_SRV.AssociationEmployeeHeaderItem" FromRole="FromRole_AssociationEmployeeHeaderItem" ToRole="ToRole_AssociationEmployeeHeaderItem" sap:label="Nav_EmployeeHeaderToItem"/>
+            </EntityType>
+            <EntityType Name="EmployeeAddressItem" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="EmployeeID"/>
+                </Key>
+                <Property Name="EmployeeID" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Char20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmployeeAddrStreet" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 Characters" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmployeeAddrCity" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 Characters" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmployeeAddrState" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 Characters" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmployeeAddrRegion" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 Characters" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmployeeAddrCountry" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 Characters" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="DynamicTile" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="title"/>
+                </Key>
+                <Property Name="title" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Title" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="info" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Information" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="infoState" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Information State" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="number" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="icon" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Icon" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="numberFactor" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Number Factor" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="subtitle" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Sub Title" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="numberUnit" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Number Unit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="numberState" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Number State" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="EmployeeExpItem" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="EmployeeID"/>
+                </Key>
+                <Property Name="EmployeeID" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Char20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmpCompanyCode" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Char20" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmpCompanyLocation" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 Characters" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmpExperience" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Character Field Length = 10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmpCompanyName" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="30 Characters" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="EmployeePositionF4" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="EmpPosition"/>
+                    <PropertyRef Name="EmployeeID"/>
+                </Key>
+                <Property Name="Client" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EmpPosition" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Employee Position" sap:creatable="false" sap:sortable="false"/>
+                <Property Name="EmployeeID" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Employee Id" sap:creatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="EmpPhotoItem" m:HasStream="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="EmployeeID"/>
+                </Key>
+                <Property Name="EmployeeID" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="EmployeeId" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FileName" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="FileName" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MimeType" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="MimeType" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Content" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:label="MediaContent" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="AssoEmpHeaderToItemExp" sap:content-version="1">
+                <End Type="ZGW_EMP_DETAILS_SRV.EmployeeHeader" Multiplicity="1" Role="FromRole_AssoEmpHeaderToItemExp"/>
+                <End Type="ZGW_EMP_DETAILS_SRV.EmployeeExpItem" Multiplicity="*" Role="ToRole_AssoEmpHeaderToItemExp"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_AssoEmpHeaderToItemExp">
+                        <PropertyRef Name="EmployeeID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_AssoEmpHeaderToItemExp">
+                        <PropertyRef Name="EmployeeID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="AsEmpPhoto" sap:content-version="1">
+                <End Type="ZGW_EMP_DETAILS_SRV.EmployeeHeader" Multiplicity="1" Role="FromRole_AsEmpPhoto"/>
+                <End Type="ZGW_EMP_DETAILS_SRV.EmpPhotoItem" Multiplicity="*" Role="ToRole_AsEmpPhoto"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_AsEmpPhoto">
+                        <PropertyRef Name="EmployeeID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_AsEmpPhoto">
+                        <PropertyRef Name="EmployeeID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="AssociationEmployeeHeaderItem" sap:content-version="1">
+                <End Type="ZGW_EMP_DETAILS_SRV.EmployeeHeader" Multiplicity="1" Role="FromRole_AssociationEmployeeHeaderItem"/>
+                <End Type="ZGW_EMP_DETAILS_SRV.EmployeeAddressItem" Multiplicity="*" Role="ToRole_AssociationEmployeeHeaderItem"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_AssociationEmployeeHeaderItem">
+                        <PropertyRef Name="EmployeeID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_AssociationEmployeeHeaderItem">
+                        <PropertyRef Name="EmployeeID"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZGW_EMP_DETAILS_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="EmployeeHeaderSet" EntityType="ZGW_EMP_DETAILS_SRV.EmployeeHeader" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="EmployeeAddressItemSet" EntityType="ZGW_EMP_DETAILS_SRV.EmployeeAddressItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="DynamicTileSet" EntityType="ZGW_EMP_DETAILS_SRV.DynamicTile" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="EmployeeExpItemSet" EntityType="ZGW_EMP_DETAILS_SRV.EmployeeExpItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="EmployeePositionF4Set" EntityType="ZGW_EMP_DETAILS_SRV.EmployeePositionF4" sap:creatable="false" sap:deletable="false" sap:searchable="true" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="EmpPhotoItemSet" EntityType="ZGW_EMP_DETAILS_SRV.EmpPhotoItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <AssociationSet Name="AssociationEmployeeHeaderItemSet" Association="ZGW_EMP_DETAILS_SRV.AssociationEmployeeHeaderItem" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="EmployeeHeaderSet" Role="FromRole_AssociationEmployeeHeaderItem"/>
+                    <End EntitySet="EmployeeAddressItemSet" Role="ToRole_AssociationEmployeeHeaderItem"/>
+                </AssociationSet>
+                <AssociationSet Name="AsEmpPhotoSet" Association="ZGW_EMP_DETAILS_SRV.AsEmpPhoto" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="EmployeeHeaderSet" Role="FromRole_AsEmpPhoto"/>
+                    <End EntitySet="EmpPhotoItemSet" Role="ToRole_AsEmpPhoto"/>
+                </AssociationSet>
+                <AssociationSet Name="AssoEmpHeaderToItemExpSet" Association="ZGW_EMP_DETAILS_SRV.AssoEmpHeaderToItemExp" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="EmployeeHeaderSet" Role="FromRole_AssoEmpHeaderToItemExp"/>
+                    <End EntitySet="EmployeeExpItemSet" Role="ToRole_AssoEmpHeaderToItemExp"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZGW_EMP_DETAILS_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZGW_EMP_DETAILS_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>
