@@ -14,7 +14,9 @@
 					<IconTabFilter key="iCTab_Two_FireBase" text="Firebase Read and Create" tooltip="Firebase Exercise" icon="sap-icon://table-view">
 						<core:Fragment fragmentName="com.sap.ui5.app.ZSAPUI5ALLAPP.fragments.FireBaseData" type="XML"></core:Fragment>
 					</IconTabFilter>
-					<IconTabFilter key="iCTab_Three_FireBase" text="Firebase Auth" tooltip="Firebase Authentication" icon="sap-icon://user-settings"></IconTabFilter>
+					<IconTabFilter key="iCTab_Three_FireBase" text="Firebase Auth" tooltip="Firebase Authentication" icon="sap-icon://user-settings">
+						<core:Fragment fragmentName="com.sap.ui5.app.ZSAPUI5ALLAPP.fragments.FireBaseAuth" type="XML"></core:Fragment>
+					</IconTabFilter>
 					<IconTabFilter key="iCTab_One_SmartCtrl" icon="sap-icon://activate" text="Smart Table" tooltip="Smart Table" visible="true">
 						<!--<core:Fragment fragmentName="com.sap.ui5.app.ZSAPUI5ALLAPP.fragments.SmartTable" type="XML"></core:Fragment>-->
 					</IconTabFilter>

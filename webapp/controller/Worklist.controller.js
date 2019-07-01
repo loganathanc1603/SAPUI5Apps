@@ -101,8 +101,36 @@ sap.ui.define([
 			});
 		},
 
-		onUpdShModel: function(evt) {
+		onPrsFireAuth: function(evt) {
+			var key = evt.getSource().data("filterId");
+			var email = this.byId("iPEmailId").getValue(),
+				pwd = this.byId("iPPwdId").getValue(),
+				firebaseModel = this.getView().getModel("firebase"),
+				auth,
+				errMsg;
+			if (!firebaseModel) {
+				this.setModel(Firebase.initializeFirebase(), "firebase");
+			}
+			if (key === "SI") {
+				auth = this.getView().getModel("firebase").getData().firebase.auth();
+				auth.signInWithEmailAndPassword(email, pwd).then(function(msg) {
+					errMsg = msg;
+				}).catch(function(err) {
+					errMsg = err.message;
+				});
+			} else if (key === "SU") {
+				auth = this.getView().getModel("firebase").getData().firebase.auth();
+				auth.createUserWithEmailAndPassword(email, pwd).then(function(success) {
+					// var t = success;
+					MessageBox.show("Sign Up Successfully Completed.", MessageBox.Icon.SUCCESS, "Success");
+				}.bind(this)).catch(function(error) {
+					// var errorCode = error.code;
+					var errorMessage = error.message;
+					MessageBox.show(errorMessage, MessageBox.Icon.ERROR, "Error");
+				}.bind(this));
+			} else if (key === "SO") {
 
+			}
 		}
 
 	});

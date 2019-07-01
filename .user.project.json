@@ -25,7 +25,25 @@
         "id": "2907669",
         "runnerId": "fiorirunner",
         "displayName": "App as Fiori Component",
-        "lastRunTimeStamp": 1561887175986
+        "lastRunTimeStamp": 1561959002707
+      }
+    },
+    {
+      "filePath": "/webapp/index.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": null,
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [],
+      "hashParameter": "",
+      "backendSystem": [],
+      "_metadata": {
+        "runnerId": "webapprunner",
+        "id": 6739202,
+        "displayName": "Run index.html",
+        "lastRunTimeStamp": 1561890341657
       }
     },
     {
@@ -53,7 +71,7 @@
         "id": "578680",
         "runnerId": "webapprunner",
         "displayName": "App in FLP Sandbox",
-        "lastRunTimeStamp": 1561871919600
+        "lastRunTimeStamp": 1561890295707
       }
     },
     {
