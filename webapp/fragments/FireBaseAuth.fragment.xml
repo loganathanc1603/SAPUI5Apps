@@ -22,9 +22,9 @@
 					</f:FormElement>
 					<f:FormElement label="">
 						<f:fields>
-							<Button text="Sign In" type="Emphasized" press="onPrsFireAuth" app:filterId="SI"></Button>
-							<Button text="Sign Up" type="Default" press="onPrsFireAuth" app:filterId="SU"></Button>
-							<Button text="Sign Out" type="Reject" press="onPrsFireAuth" app:filterId="SO" visible="true"></Button>
+							<Button text="Sign In" id="btnSiId" type="Emphasized" press="onPrsFireAuth" app:filterId="SI"></Button>
+							<Button text="Sign Up" id="btnSuId" type="Default" press="onPrsFireAuth" app:filterId="SU"></Button>
+							<Button text="Sign Out" id="btnSoId" type="Reject" press="onPrsFireAuth" app:filterId="SO" visible="true"></Button>
 						</f:fields>
 					</f:FormElement>
 				</f:formElements>

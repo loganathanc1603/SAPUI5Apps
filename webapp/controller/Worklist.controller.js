@@ -115,6 +115,7 @@ sap.ui.define([
 				auth = this.getView().getModel("firebase").getData().firebase.auth();
 				auth.signInWithEmailAndPassword(email, pwd).then(function(msg) {
 					errMsg = msg;
+					// sap.ui.getCore().byId("")
 				}).catch(function(err) {
 					errMsg = err.message;
 				});
